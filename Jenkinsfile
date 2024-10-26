@@ -9,7 +9,7 @@ pipeline{
           }
     stage("Build")
     {
-      step{
+      steps{
         echo "Build success"
       }
     }
