@@ -30,7 +30,7 @@ const Home = () => {
 
     <Design>
 
-      <h1>Welcome users!!</h1>
+      <h1>Welcome users to our stor!!!</h1>
 
       <h3 style={{WebkitTextStroke:"0.1vw red",textTransform:"lowercase"}}>All latest equipments available </h3>
       
