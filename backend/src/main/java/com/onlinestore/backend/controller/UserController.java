@@ -8,6 +8,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -24,6 +25,7 @@ import com.onlinestore.backend.service.UserService;
 import jakarta.validation.Valid;
 
 @RestController
+@CrossOrigin
 public class UserController {
 	@Autowired
 	private UserService service;
@@ -73,8 +75,8 @@ public class UserController {
 	
 	@DeleteMapping("del/{id}")
 	public void getdeleteUserById(@PathVariable int id) {
-	    service.deleteUserById(id);
-	    
+	     service.deleteUserById(id);
+		
 	}
 	
 	@PutMapping("/modify")

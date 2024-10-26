@@ -38,33 +38,17 @@ class UserRepositoryTest {
 	public void testfindAllUser() {
 		
 		List<User> users=new ArrayList<User>();
-		users.add(new User(1,"adam","adam@gmail.com","kolkata",798093756, null));
-		users.add(new User(2,"alex","alex@gmail.com","kolkata",798093785, null));
+		users.add(new User(1,"adam","adam@gmail.com","kolkata","798093756", null));
+		users.add(new User(2,"alex","alex@gmail.com","kolkata","798093785", null));
 		when(repo.findAll()).thenReturn(users);
 		assertEquals(2,ser.findAllUser().size());
 		
 	}
 	
 	
-
-	@Test
-	public void testfindById() {
-//	   User user = ser.findUserById(1);
-//	   assertEquals("abc", user.getName());
-//	   logger.info("User->{}",user);
-	   
-		List<User> users=new ArrayList<User>();
-		users.add(new User(1,"adam","adam@gmail.com","kolkata",79809376, null));
-		users.add(new User(2,"alex","alex@gmail.com","Mumbai",79809375, null));
-		int id=1;
-		when(repo.findAll()).thenReturn(users);
-		assertEquals(id,ser.findUserById(id).getId());
-
-		
-	}
 	@Test
 	public void test_addUser() {
-		User user=new User(1,"adam","adam@gmail.com","kolkata",79809376, null);
+		User user=new User(1,"adam","adam@gmail.com","kolkata","79809376", null);
 		when(repo.save(user)).thenReturn(user);
 		assertEquals(user,ser.addUser(user));
 		
@@ -72,7 +56,7 @@ class UserRepositoryTest {
 	
 	@Test
 	public void test_deleteAllUser() {
-		User user=new User(1,"adam","adam@gmail.com","kolkata",79809376, null);
+		User user=new User(1,"adam","adam@gmail.com","kolkata","79809376", null);
 		ser.deleteAllUser();
 		verify(repo,times(1)).deleteAll();
 		

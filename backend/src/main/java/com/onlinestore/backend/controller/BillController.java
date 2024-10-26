@@ -32,7 +32,7 @@ private  org.slf4j.Logger logger=LoggerFactory.getLogger(this.getClass());
 	
 	@PostMapping("/getbill")
 	public Bill getpostBill(@RequestBody Bill bill) {
-		logger.info("Your Bill {}->",bill);
+//		logger.info("Your Bill {}->",bill);
 		return service.postBill(bill);
 		
 	}

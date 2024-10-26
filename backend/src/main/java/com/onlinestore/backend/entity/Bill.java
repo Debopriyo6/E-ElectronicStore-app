@@ -21,8 +21,7 @@ public class Bill {
 	
 	private Integer total_price;
 	
-//	@OneToMany(mappedBy = "bill")
-//	private List<Item> items;
+
 	
 	
 

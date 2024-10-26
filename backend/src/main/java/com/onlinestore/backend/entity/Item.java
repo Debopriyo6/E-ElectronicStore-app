@@ -11,7 +11,6 @@ import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.ToString;
 
 @Entity
 @Data
@@ -33,11 +32,10 @@ public class Item {
 	private String image;
 	
 	@ManyToOne(fetch=FetchType.EAGER)
-	@ToString.Exclude
+//	@ToString.Exclude
 	private User user;
 	
-//	@ManyToOne
-//     private Bill bill;
+
 
 	
 }

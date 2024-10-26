@@ -37,7 +37,7 @@ class ItemRepositoryTest {
 	
 	@Test
 	 public void test_findAllItems() {
-	   List<Item> items=new ArrayList<>();
+	   List<Item> items=new ArrayList<Item>();
 	   items.add(new Item(21,"Pizza","extra-chesse",2,99,"http:/pizza/abc", null));
 	   items.add(new Item(22,"Burger","crunchy",1,56,"http:/burger/zkc", null));	
 	   
