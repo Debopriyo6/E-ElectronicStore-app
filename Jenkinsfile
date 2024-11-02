@@ -1,6 +1,10 @@
 pipeline {
     agent any
 
+    triggers{
+      pollSCM('H/1 * * * *')
+    }
+
     environment {
         DOCKER_HUB_CREDENTIALS = '662001'  // Jenkins credential ID for Docker Hub
         DOCKER_IMAGE = 'debopriyoray662001824/e-commerce:latest'
