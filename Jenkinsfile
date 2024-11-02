@@ -11,7 +11,7 @@ pipeline {
     }
 
     stages {
-        stage('Clone Repository') {
+        stage('Cloning  Repository') {
             steps {
                 // Pull your project code
                 git branch: 'main', url: 'https://github.com/Debopriyo6/E-ElectronicStore-app.git'
