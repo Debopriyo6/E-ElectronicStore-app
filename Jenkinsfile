@@ -25,6 +25,7 @@ pipeline {
         stage('Build Project') {
             steps {
                 // Run your build commands here, e.g., if you're building a React frontend or other
+                dir('C:/Users/DIPRAJ/OneDrive/Desktop/e-commerce/Project-app/E-ElectronicStore-app/Frontend')
                 sh 'npm install'
                 sh 'npm run build'
             }
