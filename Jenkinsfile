@@ -1,83 +1,87 @@
 pipeline {
     agent any
-
-    tools{
-        nodejs 'MyNodeJs'
-        
-    }
-   
-    triggers{
-      pollSCM('* * * * *')
-    }
-
+    
     environment {
-        DOCKER_HUB_CREDENTIALS = '662001'  // Jenkins credential ID for Docker Hub
-        DOCKER_IMAGE = 'debopriyoray662001824/e-commerce:latest'
+        FRONTEND_DIR = 'frontend'  // Folder where the React app is located
+        BACKEND_DIR = 'backend'    // Folder where the Spring Boot app is located
     }
 
     stages {
-        stage('Cloning  Repository') {
+        stage('Checkout') {
             steps {
-                // Pull your project code
-                git branch: 'main', url: 'https://github.com/Debopriyo6/E-ElectronicStore-app.git'
+                // Checkout the code from Git
+                git branch: 'main', url: 'https://github.com/Debopriyo6/E-ElectronicStore-app.git''
             }
         }
 
-        stage('Build Project') {
+        stage('Frontend - Install Dependencies') {
             steps {
-                // Run your build commands here, e.g., if you're building a React frontend or other
-                dir('C:/Users/DIPRAJ/OneDrive/Desktop/e-commerce/Project-app/E-ElectronicStore-app/Frontend')
-                sh 'npm install'
-                sh 'npm run build'
-            }
-        }
-
-        stage('Build Docker Image') {
-            steps {
-                script {
-                    // Build Docker image
-                    sh "docker build -t ${DOCKER_IMAGE} ."
+                dir(FRONTEND_DIR) {
+                    // Install Node.js dependencies for React frontend
+                    sh 'npm install'
                 }
             }
         }
 
-        stage('Push to Docker Hub') {
+        stage('Frontend - Build') {
             steps {
-                script {
-                    // Log in to Docker Hub
-                    withCredentials([usernamePassword(credentialsId: "${DOCKER_HUB_CREDENTIALS}", usernameVariable: 'DOCKER_USER', passwordVariable: 'DOCKER_PASS')]) {
-                        sh "echo $DOCKER_PASS | docker login -u $DOCKER_USER --password-stdin"
-                    }
-                    // Push image to Docker Hub
-                    sh "docker push ${DOCKER_IMAGE}"
+                dir(FRONTEND_DIR) {
+                    // Build React frontend
+                    sh 'npm run build'
                 }
             }
         }
 
-        stage('Deploy to Tomcat Server') {
+        stage('Backend - Build') {
             steps {
-                script {
-                    // Stop existing container if it's running
-                    sh "docker stop tomcat_container || true"
-                    sh "docker rm tomcat_container || true"
+                dir(BACKEND_DIR) {
+                    // Build the Spring Boot backend using Maven or Gradle
                     
-                    // Run new container from the pushed image
-                    sh "docker run -d --name tomcat_container -p 8080:8080 ${DOCKER_IMAGE}"
+                    sh './mvn clean package '  
                 }
+            }
+        }
+
+
+       
+
+        stage('Docker Build and Push') {
+            steps {
+                script {
+                    // Build Docker images for both frontend and backend
+                    sh "docker build -t debopriyoray662001824/e-commerce:latest -f ${FRONTEND_DIR}/Dockerfile ${FRONTEND_DIR}"
+                    sh "docker build -t debopriyoray662001824/e-commerce-backend:latest -f ${BACKEND_DIR}/Dockerfile ${BACKEND_DIR}"
+
+                    // Push Docker images to Docker Hub
+                    withCredentials([usernamePassword(credentialsId: '662001', passwordVariable: 'DOCKER_PASS', usernameVariable: 'DOCKER_USER')]) {
+                        sh 'echo "$DOCKER_PASS" | docker login -u "$DOCKER_USER" --password-stdin'
+                        sh 'docker push debopriyoray662001824/e-commerce:latest'
+                        sh 'docker push debopriyoray662001824/e-commerce-backend:latest'
+                    }
+                }
+            }
+        }
+
+        stage('Deploy') {
+            steps {
+                // Define your deployment steps here, e.g., Kubernetes or Docker Compose
+                // For example, deploying with Kubernetes:
+                sh 'kubectl apply -f k8s-frontend-deployment.yaml'
+                sh 'kubectl apply -f k8s-backend-deployment.yaml'
             }
         }
     }
 
     post {
         always {
-            // Clean up Docker images on Jenkins to save space
-            sh 'docker system prune -f'
+            // Cleanup Docker images to free up space
+            sh 'docker image prune -f'
         }
         success {
-            echo 'Deployment succeeded!!'
+            echo 'Pipeline succeeded!'
         }
         failure {
-            echo 'Deployment failed!!'
-}
-    }
+            echo 'Pipeline failed!'
+        }
+    }
 }
