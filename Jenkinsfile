@@ -10,7 +10,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 // Checkout the code from Git
-                git branch: 'main', url: 'https://github.com/Debopriyo6/E-ElectronicStore-app.git''
+                git branch: 'main', url: 'https://github.com/Debopriyo6/E-ElectronicStore-app.git'
             }
         }
 
