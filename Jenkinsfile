@@ -19,12 +19,17 @@ pipeline{
             steps{
                 dir('frontend'){
                     withEnv(["PATH+NODE=$NODEJS_HOME/bin"]){
-                        sh 'npm install'
+                        sh 'npm ci --prefer-offline --no-audit'
                         sh 'npm run build'
                     }
                 }
             }
         }
+
+        stage('Move Frontend Build to Backend') {
+            steps {
+                sh 'rm -rf backend/src/main/resources/static/*'  // Clear old files
+                sh 'cp -r frontend/build/* backend/src/main/resources/static/'  // Copy frontend build
 
         stage('Build backend'){
             steps{
