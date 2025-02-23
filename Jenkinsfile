@@ -5,7 +5,7 @@ pipeline{
     environment{
         NODEJS_HOME = tool name: 'NodeJS'
         JAVA_HOME = tool name: 'Java'
-        MVN_HOME tool name: 'Maven'
+        MVN_HOME = tool name: 'Maven'
     }
 
     stages{
