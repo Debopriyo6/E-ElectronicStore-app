@@ -1,6 +1,8 @@
 pipeline{
 
-    agent any
+    agent {
+        Project
+    }
 
     environment{
         NODEJS_HOME = tool name: 'NodeJS'
