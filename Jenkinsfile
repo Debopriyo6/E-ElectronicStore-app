@@ -31,6 +31,9 @@ pipeline{
                 sh 'rm -rf backend/src/main/resources/static/*'  // Clear old files
                 sh 'cp -r frontend/build/* backend/src/main/resources/static/'  // Copy frontend build
 
+            }
+        }
+
         stage('Build backend'){
             steps{
                 dir('backend'){
@@ -41,7 +44,7 @@ pipeline{
             }
         }
     }
-
+        
         post {
             success{
                 echo 'Build successful!!'
@@ -53,3 +56,4 @@ pipeline{
         }
     
 }
+    
