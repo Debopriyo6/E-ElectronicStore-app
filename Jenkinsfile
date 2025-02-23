@@ -1,7 +1,7 @@
 pipeline{
 
     agent {
-        Project
+        label 'Project'
     }
 
     environment{
