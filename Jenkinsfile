@@ -19,7 +19,7 @@ pipeline{
             steps{
                 dir('frontend'){
                     withEnv(["PATH+NODE=$NODEJS_HOME/bin"]){
-                        sh 'npm ci --prefer-offline --no-audit'
+                        sh 'npm install --prefer-offline --no-audit'
                         sh 'npm run build'
                     }
                 }
