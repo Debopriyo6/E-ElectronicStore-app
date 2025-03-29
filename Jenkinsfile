@@ -3,7 +3,7 @@ pipeline{
     agent any
 
     environment{
-        NODEJS_HOME = tool name: 'NodeJS'
+        NODEJS_HOME = tool name: 'nodejs'
         JAVA_HOME = tool name: 'Java'
         MVN_HOME = tool name: 'Maven'
     }
