@@ -19,7 +19,7 @@ pipeline{
             steps{
                 dir('frontend'){
                     withEnv(["PATH+NODE=$NODEJS_HOME/bin"]){
-                        sh ' /opt/nodejs/bin/npm install --fetch-timeout=60000'
+                        sh ' npm install'
                         sh 'npm run build'
                     }
                 }
