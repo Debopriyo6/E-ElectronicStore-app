@@ -19,7 +19,7 @@ pipeline{
             steps{
                 dir('frontend'){
                     withEnv(["PATH+NODE=$NODEJS_HOME/bin"]){
-                        sh 'npm install'
+                        sh ' /opt/nodejs/bin/npm install'
                         sh 'npm run build'
                     }
                 }
