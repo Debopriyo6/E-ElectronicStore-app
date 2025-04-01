@@ -4,7 +4,7 @@ import ItemDisplay from "./ItemDisplay";
 const Services = () => {
   return (
     <div>
-      {/* <ItemDisplay/> */}
+       <ItemDisplay/> 
     </div>
   );
 };
