@@ -8,11 +8,12 @@ width:900px;
 
 
 
-const ItemDisplay = ({ id, image, description, price, itemname, item,handleaddtoCart }) => {
+const ItemDisplay = ({  image, description, price, itemname, item,handleaddtoCart }) => {
   
   return (
     
-    <Container className="card" style={{width: "18rem" ,color:"blueviolet"}}>
+    
+    <Container className="card h-100" style={{width:"16rem", color:"blueviolet"}}>
       <img className="card-img-top" src={image} alt="....." />
       <div className="card-body">
         <h5 className="card-title">{itemname}</h5>
@@ -25,6 +26,7 @@ const ItemDisplay = ({ id, image, description, price, itemname, item,handleaddto
        
       </div>
     </Container>
+    
     
   );
 };

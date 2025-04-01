@@ -8,7 +8,7 @@ background-size:cover;
 background-image: url('https://st3.depositphotos.com/30046358/32671/v/450/depositphotos_326717364-stock-illustration-electronics-online-store-flat-vector.jpg.webp');
 height: 80vh;
 overflow:hidden;
-width:900px;
+width:1456px;
 @media (min-width:0px) and (max-width:600px){
   width:300px;
 }
@@ -30,7 +30,7 @@ const Home = () => {
 
     <Design>
 
-      <h1>Welcome users to our stor!!!</h1>
+      <h1>Welcome users!!</h1>
 
       <h3 style={{WebkitTextStroke:"0.1vw red",textTransform:"lowercase"}}>All latest equipments available </h3>
       

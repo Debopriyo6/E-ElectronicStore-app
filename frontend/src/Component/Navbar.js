@@ -2,13 +2,9 @@ import { ShoppingCartOutlined } from '@mui/icons-material'
 import { Badge } from '@mui/material'
 import { useContext } from 'react'
 import { Link } from 'react-router-dom'
-// import { useCart } from 'react-use-cart'
 import styled from 'styled-components'
 import { itemcontext ,logincontext} from './Context'
 import { ToastContainer, toast } from 'react-toastify'
-
-
-
 
 
 
@@ -31,7 +27,7 @@ margin-left:14px;
 margin-right:14px;
 `
 const Navbar = () => {
-    // const{totalUniqueItems}=useCart();
+    
     const{size}=useContext(itemcontext);
 
 
@@ -51,7 +47,7 @@ const Navbar = () => {
     <Announcement>
    
 
-     Super exciting deals going on!!!
+     All items are just a one click away...!!!
      
     </Announcement>
 
@@ -59,9 +55,9 @@ const Navbar = () => {
 
 
 
-      <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  
-  <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <nav class="navbar navbar-expand-lg navbar-light bg-white">
+  <a className="navbar-brand" href="/">e-Electronics Store</a>
+  <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span className="navbar-toggler-icon"></span>
   </button>
 
@@ -72,7 +68,7 @@ const Navbar = () => {
       </li>
       <li className="nav-item">
         
-        <Link className="nav-link" to="/services">Services</Link>
+        <Link className="nav-link" to="/services">Items</Link>
       </li>   
     </ul>
   </div>
@@ -107,7 +103,7 @@ const Navbar = () => {
       </Link>
 
     </Container>
-
+    
 </nav>
     </div>
   )

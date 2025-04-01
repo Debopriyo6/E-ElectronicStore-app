@@ -4,11 +4,11 @@ import ItemDisplay from "./ItemDisplay";
 const ItemFetch = () => {
   const{item,handleaddtoCart}=useContext(itemcontext);
   return (
-    <div className="container my-3">
-      <div className="row gy-3">
+    <div className="container my-3" style={{backgroundColor:"blue"}}>
+      <div className="row gy-3" >
         {item.map((t,index) => {
           return (
-            <div className="col-md-3" >
+            <div className="col-md-3"  >
               <ItemDisplay
                  key={index}
                  handleaddtoCart={handleaddtoCart}

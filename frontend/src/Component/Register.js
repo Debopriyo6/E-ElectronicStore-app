@@ -1,4 +1,3 @@
-/* eslint-disable no-lone-blocks */
 import React, { useContext, useState } from "react";
 import { dummycontext, logincontext, namecontext } from "./Context";
 import { Link } from "react-router-dom/cjs/react-router-dom";
@@ -6,11 +5,12 @@ import axios from "axios";
 import styled from "styled-components";
 import { useEffect } from "react";
 import { toast, ToastContainer } from "react-toastify";
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 
 
 const Wrapper = styled.div`
-  overflow: hidden;
+   overflow:hidden;
   background-size: cover;
   background-image: url("https://media.istockphoto.com/id/1013435204/photo/businessman-filling-online-registration-form.jpg?s=612x612&w=0&k=20&c=OqVxHQngPfPHNV9baIcqChpiL7Iv5G86bK5Pg0urbTc=");
 `;
@@ -19,7 +19,7 @@ const Container = styled.div`
 width:900px;
 text-align:center;
 justify-content: center;
-@media (min-width:0px) and (max-width:600px){
+@media  (min-width:0px) and (max-width:600px){
   width:300px;
 }
 `
@@ -37,6 +37,8 @@ const Register = () => {
   const [phno, setPhno] = useState("");
   const [phnotouch, setPhnotouch] = useState(false);
   const [formIsvalid, setformIsvalid] = useState(false);
+
+  const history=useHistory();
 
   let namecheck = name.length >= 3;
   let addresscheck = address.length >= 4;
@@ -87,10 +89,10 @@ const Register = () => {
     setPhnotouch(true);
   };
 
-  const obj = {
-    pname: name,
-    email: mail,
-  };
+  // const obj = {
+  //   pname: name,
+  //   email: mail,
+  // };
 
   const user = {
     name: name,
@@ -99,7 +101,7 @@ const Register = () => {
     phno: phno,
   };
 
-  const obj1 = [obj, ...person];
+  const obj1 = [user, ...person];
 
   const submitHandler = (event) => {
     event.preventDefault();
@@ -118,19 +120,17 @@ const Register = () => {
     setPhnotouch(true);
 
     setPerson(obj1);
-    // setName("");
-    // setMail("");
+    
 
     setLogin(true);
 
-    {
-      axios.post("http://localhost:8082/postuser", user).then(response => {
+    
+      axios.post("http://localhost:8082/postuser", user).then((response) => {
         console.log(response.data);
-    });
-    }
-    //  setTimeout(()=>{
-    //   window.location.href=("http://localhost:3000/bill")
-    //  },2000)
+      });
+    
+
+    history.push("/login")
   };
 
   return (
