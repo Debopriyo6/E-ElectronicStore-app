@@ -125,7 +125,7 @@ const Register = () => {
     setLogin(true);
 
     
-      axios.post("http://localhost:8082/postuser", user).then((response) => {
+      axios.post("http://localhost:8089/postuser", user).then((response) => {
         console.log(response.data);
       });
     

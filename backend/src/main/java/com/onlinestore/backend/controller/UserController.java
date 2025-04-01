@@ -25,7 +25,7 @@ import com.onlinestore.backend.service.UserService;
 import jakarta.validation.Valid;
 
 @RestController
-@CrossOrigin(origins= "http://localhost:3001")
+@CrossOrigin(origins= "http://localhost:3000")
 public class UserController {
 	@Autowired
 	private UserService service;

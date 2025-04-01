@@ -23,14 +23,14 @@ function App() {
   const [warning, setWarning] = useState(false);
 
   useEffect(() => {
-    axios.get("http://localhost:8082/getitem").then((response) => {
+    axios.get("http://localhost:8089/getitem").then((response) => {
       console.log(response);
       Setitem(response.data);
     });
   }, []);
 
   useEffect(() => {
-    axios.get("http://localhost:8082/user").then((response) => {
+    axios.get("http://localhost:8089/user").then((response) => {
       console.log(response);
       setPerson(response.data);
     });
