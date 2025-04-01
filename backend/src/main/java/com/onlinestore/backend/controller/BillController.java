@@ -16,7 +16,7 @@ import com.onlinestore.backend.entity.Bill;
 import com.onlinestore.backend.service.BillService;
 
 @RestController
-@CrossOrigin
+@CrossOrigin(origins= "http://localhost:3001")
 public class BillController {
 	@Autowired
 	private BillService service;

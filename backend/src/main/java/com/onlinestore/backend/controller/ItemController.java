@@ -24,7 +24,7 @@ import jakarta.validation.Valid;
 
 
 @RestController
-@CrossOrigin
+@CrossOrigin(origins= "http://localhost:3001")
 public class ItemController {
 
 	@Autowired

@@ -1,3 +1,4 @@
+/* eslint-disable no-lone-blocks */
 import React, { useContext, useState } from "react";
 import { dummycontext, logincontext, namecontext } from "./Context";
 import { Link } from "react-router-dom/cjs/react-router-dom";
@@ -123,9 +124,9 @@ const Register = () => {
     setLogin(true);
 
     {
-      axios.post("http://localhost:8082/postuser", user).then((response) => {
+      axios.post("http://localhost:8082/postuser", user).then(response => {
         console.log(response.data);
-      });
+    });
     }
     //  setTimeout(()=>{
     //   window.location.href=("http://localhost:3000/bill")

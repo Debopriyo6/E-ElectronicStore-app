@@ -1,3 +1,4 @@
+/* eslint-disable no-lone-blocks */
 import React, { useEffect } from "react";
 import { useState } from "react";
 import { useContext } from "react";
