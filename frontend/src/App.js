@@ -12,84 +12,84 @@ import { namecontext } from "./Component/Context";
 import Itemcart1 from "./Component/Itemcart1";
 import { ToastContainer, toast } from "react-toastify";
 import axios from "axios";
-import Logout from "./Component/Logout";
+// import Logout from "./Component/Logout";
 
 
 
 function App() {
-  const Dummy = [
-    { pname: "Rakseh", email: "rakesh@gmail.com" },
-    { pname: "Mukesh", email: "mukesh@gmail.com" },
-    { pname: "Sandip", email: "sandip@gmail.com" },
-    { pname: "Raj", email: "raj@gmail.com" },
-  ];
-  const Item = [
-    {
-      id: 1,
-      itemname: "laptop",
-      description: "high performance",
-      price: 72000,
-       amount:1,
-      image: "https://pisces.bbystatic.com/image2/BestBuy_US/images/products/5713/5713176cv1d.jpg",
-    },
-    {
-      id: 2,
-      itemname: "Fridge",
-      description: "Equiped with modern features",
-      price: 44000, 
-amount:1,
-      image: "https://tse1.mm.bing.net/th?id=OIP.xeafvxVoKmo4l1u-x1P9jwHaHa&pid=Api&P=0",
-    },
-    {
-      id: 3,
-      itemname: "Mixer",
-      description: "easy to use",
-      price: 12000,
-amount:1,
-      image: "https://tse3.mm.bing.net/th?id=OIP.Mxk_f2QASVnAoOesfH9izAHaHa&pid=Api&P=0",
-    },
-    {
-      id: 4,
-      itemname: "Inverter-AC",
-      description: "fast cooling with air filteration",
-      price: 58000,
-amount:1,
-      image: "https://tse2.mm.bing.net/th?id=OIP.SEOV6-N-jSjz6QCl-Nf51QHaDx&pid=Api&P=0",
-    },
-    {
-      id: 5,
-      itemname: "Chimney",
-      description: "kitchen friendly",
-      price: 22000,
-amount:1,
-      image: "https://tse1.mm.bing.net/th?id=OIP.y-zV9ygTFGTLbU6T4Ay4TgHaHa&pid=Api&P=0",
-    },
-    {
-      id: 6,
-      itemname: "Geyser",
-      description: "fast heating capacity",
-      price: 8000,
-amount:1,
-      image: "https://www.compareprix.in/images/product/large/haier-es15v-15-litre-storage-water-geyser-large.jpeg",
-    },
-    {
-      id: 7,
-      itemname: "headset",
-      description: "High quality sound with noise cancellation",
-      price: 4000,
-amount:1,
-      image: "https://i5.walmartimages.com/asr/42187bbb-d303-49b7-9f08-bbba8c78d9d8_1.93d8ecf6cb88fe0f4c306fa682a6ff58.jpeg",
-    },
-    {   
-      id: 8,
-      itemname: "LED-TV",
-      description: "Hd quality",
-      price: 34000,
-      amount:1,
-      image: "https://tse4.mm.bing.net/th?id=OIP.0y6hys_3Ztl5XUfgTGd0gwHaHa&pid=Api&P=0",
-    },
+  // const Dummy = [
+  //   { pname: "Rakseh", email: "rakesh@gmail.com" },
+  //   { pname: "Mukesh", email: "mukesh@gmail.com" },
+  //   { pname: "Sandip", email: "sandip@gmail.com" },
+  //   { pname: "Raj", email: "raj@gmail.com" },
+  // ];
+//   const Item = [
+//     {
+//       id: 1,
+//       itemname: "laptop",
+//       description: "high performance",
+//       price: 72000,
+//        amount:1,
+//       image: "https://pisces.bbystatic.com/image2/BestBuy_US/images/products/5713/5713176cv1d.jpg",
+//     },
+//     {
+//       id: 2,
+//       itemname: "Fridge",
+//       description: "Equiped with modern features",
+//       price: 44000, 
+// amount:1,
+//       image: "https://tse1.mm.bing.net/th?id=OIP.xeafvxVoKmo4l1u-x1P9jwHaHa&pid=Api&P=0",
+//     },
+//     {
+//       id: 3,
+//       itemname: "Mixer",
+//       description: "easy to use",
+//       price: 12000,
+// amount:1,
+//       image: "https://tse3.mm.bing.net/th?id=OIP.Mxk_f2QASVnAoOesfH9izAHaHa&pid=Api&P=0",
+//     },
+//     {
+//       id: 4,
+//       itemname: "Inverter-AC",
+//       description: "fast cooling with air filteration",
+//       price: 58000,
+// amount:1,
+//       image: "https://tse2.mm.bing.net/th?id=OIP.SEOV6-N-jSjz6QCl-Nf51QHaDx&pid=Api&P=0",
+//     },
+//     {
+//       id: 5,
+//       itemname: "Chimney",
+//       description: "kitchen friendly",
+//       price: 22000,
+// amount:1,
+//       image: "https://tse1.mm.bing.net/th?id=OIP.y-zV9ygTFGTLbU6T4Ay4TgHaHa&pid=Api&P=0",
+//     },
+//     {
+//       id: 6,
+//       itemname: "Geyser",
+//       description: "fast heating capacity",
+//       price: 8000,
+// amount:1,
+//       image: "https://www.compareprix.in/images/product/large/haier-es15v-15-litre-storage-water-geyser-large.jpeg",
+//     },
+//     {
+//       id: 7,
+//       itemname: "headset",
+//       description: "High quality sound with noise cancellation",
+//       price: 4000,
+// amount:1,
+//       image: "https://i5.walmartimages.com/asr/42187bbb-d303-49b7-9f08-bbba8c78d9d8_1.93d8ecf6cb88fe0f4c306fa682a6ff58.jpeg",
+//     },
+//     {   
+//       id: 8,
+//       itemname: "LED-TV",
+//       description: "Hd quality",
+//       price: 34000,
+//       amount:1,
+//       image: "https://tse4.mm.bing.net/th?id=OIP.0y6hys_3Ztl5XUfgTGd0gwHaHa&pid=Api&P=0",
+//     },
     
-  ];
+//   ];
 
 
 

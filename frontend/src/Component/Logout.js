@@ -9,7 +9,7 @@ const Logout=()=>{
     }
 
 return(<div>
-      <h1 onClick={logoutHandler}></h1>
+      <h1 onClick={logoutHandler}>..</h1>
 </div>)
 }
 export default Logout;

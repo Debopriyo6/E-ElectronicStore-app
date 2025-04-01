@@ -20,7 +20,7 @@ const{name}=useContext(namecontext);
   const [price, Setprice] = useState(0);
  
 
-  const{sign,login}=useContext(logincontext);
+  const{sign}=useContext(logincontext);
   
 
 
