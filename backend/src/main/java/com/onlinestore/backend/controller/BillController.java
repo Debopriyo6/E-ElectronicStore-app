@@ -15,8 +15,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.onlinestore.backend.entity.Bill;
 import com.onlinestore.backend.service.BillService;
 
+@CrossOrigin
 @RestController
-@CrossOrigin(origins= "http://localhost:3000")
 public class BillController {
 	@Autowired
 	private BillService service;

@@ -32,6 +32,7 @@ function App() {
   useEffect(() => {
     axios.get("http://localhost:8089/user").then((response) => {
       console.log(response);
+      
       setPerson(response.data);
     });
   }, []);

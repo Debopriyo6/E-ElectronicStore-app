@@ -22,9 +22,8 @@ import com.onlinestore.backend.service.ItemService;
 
 import jakarta.validation.Valid;
 
-
+@CrossOrigin
 @RestController
-@CrossOrigin(origins= "http://localhost:3000")
 public class ItemController {
 
 	@Autowired
