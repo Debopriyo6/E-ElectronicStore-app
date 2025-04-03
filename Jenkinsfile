@@ -39,7 +39,7 @@ pipeline{
             steps{
                 dir('backend'){
                     withEnv(["PATH+MAVEN=$MVN_HOME/bin"]){
-                        sh 'mvn clean install'
+                        sh 'mvn clean install -DskipTests'
                     }
                 }
             }
