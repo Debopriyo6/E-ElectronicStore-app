@@ -48,7 +48,7 @@ pipeline {
     post {
         success {
             echo 'Build successful! Deploying to Tomcat...'
-            withCredentials([usernamePassword(credentialsId: 'tomcat_deployer', usernameVariable: 'deployer', passwordVariable: 'deployer')]) {
+            withCredentials([usernamePassword(credentialsId: 'tomcat_deployer', usernameVariable: 'deployer', passwordVariable: 'debo@6')]) {
                 sh '''
                     echo "Looking for WAR file..."
                     WAR_FILE=$(find backend/target -name "*.war" | head -n 1)
