@@ -55,7 +55,7 @@ pipeline {
 
                     if [ -f "$WAR_FILE" ]; then
                         echo "Deploying $WAR_FILE to Tomcat..."
-                        curl --upload-file "$WAR_FILE" "http://13.233.77.50:8080/manager/text/deploy?path=/&update=true" \
+                        curl --upload-file "$WAR_FILE" "http://13.233.77.50:8080/manager/text/deploy?path=/store&update=true" \
                             --user "$deployer:$debo6"
                     else
                         echo "WAR file not found!"
