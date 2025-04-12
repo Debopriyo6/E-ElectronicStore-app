@@ -50,18 +50,16 @@ pipeline {
             script {
                 echo 'Build successful! Uploading WAR via SSH...'
 
-                publishOverSsh(
-                    server: 'dockerhost', // <-- Replace with actual server ID
-                    transfers: [
-                        [
-                            sourceFiles: 'backend/target/*.war',
-                            removePrefix: 'backend/target',
-                            remoteDirectory: '/home/dokeradmin'
-                        ]
-                    ],
-                    usePromotionTimestamp: false,
-                    useWorkspaceInPromotion: false,
-                    verbose: true
+                def remote = [
+                    name: 'dockerhost', // Replace this with your actual SSH server ID
+                    sourceFiles: 'backend/target/*.war',
+                    removePrefix: 'backend/target',
+                    remoteDirectory: '/home/dokeradmin',
+                    execCommand: '' // Optional: e.g., move or restart command on remote
+                ]
+
+                sshPublisher(
+                    publishers: [remote]
                 )
             }
         }
