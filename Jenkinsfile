@@ -1,5 +1,4 @@
 pipeline {
-
     agent any
 
     environment {
@@ -51,15 +50,19 @@ pipeline {
                 echo 'Build successful! Uploading WAR via SSH...'
 
                 def remote = [
-                    name: 'dockerhost', // Replace this with your actual SSH server ID
+                    name: 'dockerhost', // change this to your actual SSH server ID
                     sourceFiles: 'backend/target/*.war',
                     removePrefix: 'backend/target',
                     remoteDirectory: '/home/dokeradmin',
-                    execCommand: '' // Optional: e.g., move or restart command on remote
+                    execCommand: ''
                 ]
 
-                sshPublisher(
-                    publishers: [remote]
+                publishOverSsh(
+                    publishers: [remote],
+                    continueOnError: false,
+                    failOnError: true,
+                    alwaysPublishFromMaster: false,
+                    verbose: true
                 )
             }
         }
