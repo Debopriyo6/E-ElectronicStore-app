@@ -47,26 +47,25 @@ pipeline {
 
     post {
         success {
-            echo 'Build successful! Deploying to Tomcat...'
-            withCredentials([usernamePassword(credentialsId: 'tomcat_deployer', usernameVariable: 'deployer', passwordVariable: 'debo6')]) {
-                sh '''
-                    echo "Looking for WAR file..."
-                    WAR_FILE=$(find backend/target -name "*.war" | head -n 1)
+            echo 'Build successful! Uploading WAR via SSH...'
 
-                    if [ -f "$WAR_FILE" ]; then
-                        echo "Deploying $WAR_FILE to Tomcat..."
-                        curl --upload-file "$WAR_FILE" "http://3.110.41.40:8080/manager/text/deploy?path=/&update=true" \
-                            --user "$deployer:$debo6"
-                    else
-                        echo "WAR file not found!"
-                        exit 1
-                    fi
-                '''
-            }
+            publishOverSsh(
+                server: 'dockerhost',
+                transfers: [
+                    [
+                        sourceFiles: 'backend/target/*.war',
+                        removePrefix: 'backend/target',
+                        remoteDirectory: '/home/dokeradmin'
+                    ]
+                ],
+                usePromotionTimestamp: false,
+                useWorkspaceInPromotion: false,
+                verbose: true
+            )
         }
 
         failure {
             echo 'Build failed.'
-}
-    }
+        }
+    }
 }
