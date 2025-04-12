@@ -47,25 +47,27 @@ pipeline {
 
     post {
         success {
-            echo 'Build successful! Uploading WAR via SSH...'
+            script {
+                echo 'Build successful! Uploading WAR via SSH...'
 
-            publishOverSsh(
-                server: 'dockerhost',
-                transfers: [
-                    [
-                        sourceFiles: 'backend/target/*.war',
-                        removePrefix: 'backend/target',
-                        remoteDirectory: '/home/dokeradmin'
-                    ]
-                ],
-                usePromotionTimestamp: false,
-                useWorkspaceInPromotion: false,
-                verbose: true
-            )
+                publishOverSsh(
+                    server: 'dockerhost', // <-- Replace with actual server ID
+                    transfers: [
+                        [
+                            sourceFiles: 'backend/target/*.war',
+                            removePrefix: 'backend/target',
+                            remoteDirectory: '/home/dokeradmin'
+                        ]
+                    ],
+                    usePromotionTimestamp: false,
+                    useWorkspaceInPromotion: false,
+                    verbose: true
+                )
+            }
         }
 
         failure {
             echo 'Build failed.'
-        }
-    }
+        }
+    }
 }
