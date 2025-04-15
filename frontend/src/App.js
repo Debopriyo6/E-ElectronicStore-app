@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Switch, Route, Redirect } from "react-router-dom";
+import { BrowserRouter as Switch, Route, Redirect,Router } from "react-router-dom";
 import Home from "./Component/Home";
 import Navbar from "./Component/Navbar";
 import { itemcontext } from "./Component/Context";
@@ -69,6 +69,7 @@ function App() {
   };
    
   return (
+    <Router basename="/backend-0.0.1-SNAPSHOT">
     <div>
       <ToastContainer />
       <logincontext.Provider
@@ -118,6 +119,7 @@ function App() {
         </dummycontext.Provider>
       </logincontext.Provider>
     </div>
+    </Router>
   );
 }
 
