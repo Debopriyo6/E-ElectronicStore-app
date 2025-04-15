@@ -69,7 +69,7 @@ function App() {
   };
    
   return (
-    <Router basename="/backend-0.0.1-SNAPSHOT">
+    
     <div>
       <ToastContainer />
       <logincontext.Provider
@@ -119,7 +119,7 @@ function App() {
         </dummycontext.Provider>
       </logincontext.Provider>
     </div>
-    </Router>
+   
   );
 }
 
