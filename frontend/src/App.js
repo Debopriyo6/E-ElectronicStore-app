@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { BrowserRouter as Switch, Route, Redirect} from "react-router-dom";
+import { Switch, Route, Redirect} from "react-router-dom";
 import Home from "./Component/Home";
 import Navbar from "./Component/Navbar";
 import { itemcontext } from "./Component/Context";
