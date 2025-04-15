@@ -39,7 +39,7 @@ const Itemcart1 = () => {
     const a = sign;
 
     a &&
-      axios.post("http://localhost:8089/getbill", bill).then((response) => {
+      axios.post("http://15.207.112.233:8086/getbill", bill).then((response) => {
         console.log(response.data);
       });
   };
