@@ -25,7 +25,7 @@ function App() {
 
 
   useEffect(() => {
-    axios.get("http://3.110.47.81:8087/backend-0.0.1-SNAPSHOT/getitem").then((response) => {
+    axios.get("http:/3.110.47.81:8087/backend-0.0.1-SNAPSHOT/getitem").then((response) => {
       console.log(response);
       Setitem(response.data);
     });
@@ -35,7 +35,7 @@ function App() {
 
 
   useEffect(() => {
-    axios.get("http://3.110.47.81:8087/backend-0.0.1-SNAPSHOT/user").then((response) => {
+    axios.get("http:/3.110.47.81:8087/backend-0.0.1-SNAPSHOT/user").then((response) => {
       console.log(response);
       
       setPerson(response.data);
