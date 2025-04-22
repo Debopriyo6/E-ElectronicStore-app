@@ -39,7 +39,7 @@ const Itemcart1 = () => {
     const a = sign;
 
     a &&
-      axios.post("http://3.110.191.68:8083/backend-0.0.1-SNAPSHOT/getbill", bill).then((response) => {
+      axios.post("http://13.127.80.62:8083/backend-0.0.1-SNAPSHOT/getbill", bill).then((response) => {
         console.log(response.data);
       });
       //15.207.112.233:8086 --Ip addr of dockerhost

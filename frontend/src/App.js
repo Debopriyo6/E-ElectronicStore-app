@@ -25,17 +25,18 @@ function App() {
 
 
   useEffect(() => {
-    axios.get("http://3.110.191.68:8083/backend-0.0.1-SNAPSHOT/getitem").then((response) => {
+    axios.get("http://13.127.80.62:8083/backend-0.0.1-SNAPSHOT/getitem").then((response) => {
       console.log(response);
       Setitem(response.data);
     });
   }, []);
+  
   //http://15.207.112.233:8086
   //http://15.207.112.233-->this is ip of docker host, 8086:port on which container is running
 
 
   useEffect(() => {
-    axios.get("http://3.110.191.68:8083/backend-0.0.1-SNAPSHOT/user").then((response) => {
+    axios.get("http://13.127.80.62:8083/backend-0.0.1-SNAPSHOT/user").then((response) => {
       console.log(response);
       
       setPerson(response.data);
