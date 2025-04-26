@@ -25,7 +25,7 @@ function App() {
 
 
   useEffect(() => {
-    axios.get("http://52.66.250.253:8083/backend-0.0.1-SNAPSHOT/getitem").then((response) => {
+    axios.get("http://13.203.210.116:8085/backend-0.0.1-SNAPSHOT/getitem").then((response) => {
       console.log(response);
       Setitem(response.data);
     });
@@ -36,7 +36,7 @@ function App() {
 
 
   useEffect(() => {
-    axios.get("http://52.66.250.253:8083/backend-0.0.1-SNAPSHOT/user").then((response) => {
+    axios.get("http://13.203.210.116:8085/backend-0.0.1-SNAPSHOT/user").then((response) => {
       console.log(response);
       
       setPerson(response.data);
