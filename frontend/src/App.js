@@ -25,7 +25,7 @@ function App() {
 
 
   useEffect(() => {
-    axios.get("http://ac5d9752a1ea04fe58d11c4de4d971b3-1053839847.ap-south-1.elb.amazonaws.com/backend-0.0.1-SNAPSHOT/getitem").then((response) => {
+    axios.get("/backend-0.0.1-SNAPSHOT/getitem").then((response) => {
       console.log(response);
       Setitem(response.data);
     });
@@ -36,7 +36,7 @@ function App() {
 
 
   useEffect(() => {
-    axios.get("http://ac5d9752a1ea04fe58d11c4de4d971b3-1053839847.ap-south-1.elb.amazonaws.com/backend-0.0.1-SNAPSHOT/user").then((response) => {
+    axios.get("/backend-0.0.1-SNAPSHOT/user").then((response) => {
       console.log(response);
       
       setPerson(response.data);
